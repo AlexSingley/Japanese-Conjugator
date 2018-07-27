@@ -52,9 +52,9 @@ public class Conjugator {
 		Scanner wordInput = new Scanner(System.in);
         
         while(true)	{
-        	System.out.println("In kana, please enter the verb/adjective that you wish to view the conjugations of in present plain form.");
+        	System.out.println("Please enter the verb/adjective that you wish to view the conjugations of in present plain form.");
         	word = wordInput.next();
-        	if(word.equals("くる") || word.equals("する") )	{
+        	if(word.equals("くる") || word.equals("する") || word.equals("来る"))	{
         		irregVerb = true;
         	}
         	else if(word.endsWith("る") == false)	{
@@ -103,7 +103,7 @@ public class Conjugator {
 			conjTable.add(a + "な");
 		}
 		
-		if(a.equals("くる"))	{
+		if(a.equals("くる") || a.equals("来る"))	{
 			conjTable.add(a);
 			conjTable.add("きます");
 			conjTable.add("きた");
@@ -194,6 +194,9 @@ public class Conjugator {
 				conjTable.add(a.substring(0, a.length() - 1) + setOne.get(determiner) + "ます");
 				if(a.equals("いく"))	{
 					conjTable.add("いって");
+				}
+				else if(a.equals("行く"))	{
+					conjTable.add("行って");
 				}
 				else	{
 					conjTable.add(a.substring(0, a.length() - 1) + setFour.get(determiner));
