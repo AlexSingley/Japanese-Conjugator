@@ -48,12 +48,25 @@ public class Conjugator {
         verbType.add('め');
         verbType.add('れ');
 		
-		
-		Scanner wordInput = new Scanner(System.in);
+		while(true)	{
+			Scanner wordInput = new Scanner(System.in);
+			System.out.println("Please enter the verb/adjective that you wish to view the conjugations of in present plain form.");
+	    	word = wordInput.next();
+	    	
+	    	if(isJapanese(word) == false)	{
+	    		System.out.println("Input error! Please make sure that your input contains Japanese text only.");
+	    		continue;
+	    	}
+	    	else if(isVerb(word) == false)	{
+	    		System.out.println("Input error! Japanese verbs can only end in the characters 「う、く、す、つ、ぬ、ぶ、む、る、ぐ」 so please adjust your input and try again.");
+	    		continue;
+	    	}
+	    	else	{
+	    		break;
+	    	}
+		}
         
         while(true)	{
-        	System.out.println("Please enter the verb/adjective that you wish to view the conjugations of in present plain form.");
-        	word = wordInput.next();
         	if(word.equals("くる") || word.equals("する") || word.equals("来る"))	{
         		irregVerb = true;
         	}
@@ -166,12 +179,12 @@ public class Conjugator {
 		}
 		
 		List<String> setFour = new ArrayList<String>();
-		for(int i = 0; i < groupFour.length() - 2; i+=2) {
+		for(int i = 0; i < groupFour.length(); i+=2) {
 			setFour.add(groupFour.substring(i, i + 2));
 		}
 		
 		List<String> setFive = new ArrayList<String>();
-		for(int i = 0; i < groupFive.length() - 2; i+=2) {
+		for(int i = 0; i < groupFive.length(); i+=2) {
 			setFive.add(groupFive.substring(i, i + 2));
 		}
 		
@@ -293,5 +306,37 @@ public class Conjugator {
 					continue;
 			}
 		}
+	}
+	
+	public static boolean isJapanese(CharSequence word) {
+        boolean isJapanese = true;
+        for (char a : word.toString().toCharArray()) {
+            if (Character.UnicodeBlock.of(a) != Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS
+                    && Character.UnicodeBlock.of(a) != Character.UnicodeBlock.HIRAGANA
+                    && Character.UnicodeBlock.of(a) != Character.UnicodeBlock.KATAKANA
+                    && Character.UnicodeBlock.of(a) != Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS
+                    && Character.UnicodeBlock.of(a) != Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS
+                    && Character.UnicodeBlock.of(a) != Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION) {
+                isJapanese = false;
+                if(isJapanese == false) {
+                	return isJapanese;
+                }
+            }
+        }
+        return isJapanese;
+	}
+	
+	public static boolean isVerb(String word) {
+        char[] verbEndings = new char[] {'う', 'く', 'す', 'つ', 'ぬ', 'ぶ', 'む', 'る', 'ぐ'};
+        
+        for(int i = 0; i <= verbEndings.length; i++)	{
+        	if(word.charAt(word.length() - 1) == (verbEndings[i]))	{
+        		return true;
+        	}
+        	else if(verbEndings.length == i + 1)	{
+        		return false;
+        	}
+        }
+        return false;
 	}
 }
