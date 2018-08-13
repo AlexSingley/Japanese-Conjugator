@@ -1,8 +1,6 @@
 /**
  * Alex Singley
  * Rough version of a Japanese verb conjugation application.
- * Once finished with the verb portion, I plan on adding more conjugation options since what I have listed
- * now is nowhere near all of the possible conjugations. I also plan on adding in adjective conjugations.
  */
 
 
@@ -20,6 +18,7 @@ public class Conjugator {
 	public static void main(String[] args) {
 		String word;
 		
+		// Characters that affect the verb's classification
 		ArrayList<Character> verbType = new ArrayList<Character>(26);
 		verbType.add('い');
         verbType.add('き');
@@ -48,6 +47,7 @@ public class Conjugator {
         verbType.add('め');
         verbType.add('れ');
 		
+        // Testing for Japanese verb input
 		while(true)	{
 			Scanner wordInput = new Scanner(System.in);
 			System.out.println("Please enter the verb/adjective that you wish to view the conjugations of in present plain form.");
@@ -66,6 +66,7 @@ public class Conjugator {
 	    	}
 		}
         
+		// Determining verb type
         while(true)	{
         	if(word.equals("くる") || word.equals("する") || word.equals("来る"))	{
         		irregVerb = true;
@@ -95,6 +96,7 @@ public class Conjugator {
         conjWanted(word);
 	}
 	
+	// Setting conjugations 
 	private static ArrayList<String> conjugate(String a) {
 		ArrayList<String> conjTable = new ArrayList<String>();
 		
@@ -230,6 +232,7 @@ public class Conjugator {
 		return conjTable;
 	}
 	
+	// Outputting user's desired conjugation
 	private static void conjWanted(String a)	{
 		boolean loopDone = false;
 		Scanner conjInput = new Scanner(System.in);
@@ -308,6 +311,7 @@ public class Conjugator {
 		}
 	}
 	
+	// Making sure the input is Japanese text
 	public static boolean isJapanese(CharSequence word) {
         boolean isJapanese = true;
         for (char a : word.toString().toCharArray()) {
@@ -326,6 +330,7 @@ public class Conjugator {
         return isJapanese;
 	}
 	
+	// Making sure that the input is a verb
 	public static boolean isVerb(String word) {
         char[] verbEndings = new char[] {'う', 'く', 'す', 'つ', 'ぬ', 'ぶ', 'む', 'る', 'ぐ'};
         
