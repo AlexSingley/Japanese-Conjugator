@@ -2,23 +2,24 @@ package conjugator;
 
 import java.io.IOException;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class MainUIController {
 	private double x, y;
 	
     @FXML
-    private Button verbButton;
+    private JFXButton verbButton;
     
     @FXML
-    private Button adjButton;
+    private JFXButton adjButton;
     
     @FXML
     void changeToVerbConj(ActionEvent actionEvent) throws IOException {
