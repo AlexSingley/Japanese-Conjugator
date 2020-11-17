@@ -44,7 +44,7 @@
                         <Insets bottom="-70.0" top="-70.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton fx:id="adjButton" buttonType="RAISED" focusTraversable="false" layoutX="309.0" layoutY="173.0" prefHeight="90.0" prefWidth="230.0" style="-fx-background-color: #FAFAD2;" text="Adjectives">
+                  <JFXButton fx:id="adjButton" buttonType="RAISED" focusTraversable="false" layoutX="309.0" layoutY="173.0" onAction="#changeToAdjConj" prefHeight="90.0" prefWidth="230.0" style="-fx-background-color: #FAFAD2;" text="Adjectives">
                      <font>
                         <Font size="51.0" />
                      </font>

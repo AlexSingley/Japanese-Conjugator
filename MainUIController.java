@@ -43,4 +43,27 @@ public class MainUIController {
 		
 		window.show();
     }
+    
+    @FXML
+    void changeToAdjConj(ActionEvent actionEvent) throws IOException {
+    	Parent adjConjParent = FXMLLoader.load(getClass().getResource("AdjConjugationViewer.fxml"));
+    	Scene adjConjScene = new Scene(adjConjParent);
+    	
+    	//Below gets the stage info
+    	Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+    	
+    	window.setScene(adjConjScene);
+		
+		adjConjParent.setOnMousePressed(event -> {
+			x = event.getSceneX();
+			y = event.getSceneY();
+		});
+		
+		adjConjParent.setOnMouseDragged(event -> {
+			window.setX(event.getScreenX() - x);
+			window.setY(event.getScreenY() - y);
+		});
+		
+		window.show();
+    }
 }
