@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -21,14 +20,13 @@
           <RowConstraints maxHeight="523.0" minHeight="10.0" prefHeight="521.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="603.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="603.0" style="-fx-background-color: #018577;">
                <children>
-                  <Text layoutX="-189.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="日本語の活用変換機" textAlignment="CENTER" wrappingWidth="1001.0">
+                  <Text layoutX="-189.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="日本語の活用変換機" textAlignment="CENTER" wrappingWidth="1001.0">
                      <font>
                         <Font size="60.0" />
                      </font>
                   </Text>
-                  <Line endX="600.0" endY="-0.5" layoutY="135.0" startX="-1.52587890625E-5" startY="-0.5" />
                   <Text layoutX="35.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Japanese Conjugator">
                      <font>
                         <Font size="60.0" />
